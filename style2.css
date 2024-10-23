@@ -2,6 +2,42 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background-color:#F8EDD9;
+}
 .list-group-item {
-    padding: 5px 5px; /* Ajusta o espaçamento interno para diminuir o fundo */
-  }
+    min-width: 150px; /* Define a largura mínima para o fundo do botão */
+    max-width: 200px; /* Define a largura máxima para o fundo do botão */
+    
+}
+.list-group-item:hover {
+    background-color: #DD5C36;
+}
+
+.list-group-item img {
+    width: 20px; /* Diminui o tamanho da imagem */
+    height: 20px; /* Diminui o tamanho da imagem */
+    margin-right: 5px; /* Ajusta o espaçamento à direita da imagem */
+}
+.menu{
+    color:#DD5C36;
+    
+}
+
+.card {
+    background-color: #f0BE49; /* Altere para a cor desejada */
+}
+h2{
+    font-weight: bold;
+}
+button {
+    background: none; /* Remove o fundo do botão */
+    border: none; /* Remove a borda do botão */
+}
+button:hover{
+    background-color: #DD5C36;
+}
+button img {
+    width: 30px;
+    height: 30px;
+}
