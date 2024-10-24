@@ -1,43 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root{
+    --brand-color-1: #eb0029;
+    --grey-color-1: #F8EDD9;
+    --grey-color-2: #e0e0e0;
+    --font-general: 'Poppins', sans-serif;
+    --font-subtitle: 'Rubik', sans-serif;
+}
+
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
+
 body{
-    background-color:#F8EDD9;
-}
-.list-group-item {
-    min-width: 150px; /* Define a largura mínima para o fundo do botão */
-    max-width: 200px; /* Define a largura máxima para o fundo do botão */
-    
-}
-.list-group-item:hover {
-    background-color: #DD5C36;
+    background-color: var(--grey-color-1);
+    font-family: var(--font-general);
 }
 
-.list-group-item img {
-    width: 20px; /* Diminui o tamanho da imagem */
-    height: 20px; /* Diminui o tamanho da imagem */
-    margin-right: 5px; /* Ajusta o espaçamento à direita da imagem */
-}
-.menu{
-    color:#DD5C36;
-    
+.header-menu-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: .625rem;
 }
 
-.card {
-    background-color: #f0BE49; /* Altere para a cor desejada */
+.title{
+    color: var(--brand-color-1);
+    font-size: 1.125rem;
+    font-weight: 900;
 }
-h2{
-    font-weight: bold;
+
+.subtitle{
+    font-size: 2.8125rem;
+    font-family: var(--font-subtitle);
 }
-button {
-    background: none; /* Remove o fundo do botão */
-    border: none; /* Remove a borda do botão */
+
+.buttons-container{
+    display: flex;
+    align-items: center;
+    gap: 1.875rem;
+    margin-top: 4.375rem;
 }
-button:hover{
-    background-color: #DD5C36;
+
+.button-controller{
+    padding: .625rem;
+    border-radius: 100%;
+    text-align: center;
+    cursor: pointer;
+    background-color: var(--grey-color-2);
 }
-button img {
-    width: 30px;
-    height: 30px;
+
+.icon-arrow{
+    font-size: 1rem;
+    font-weight: bolder;
+}
+
+.active{
+    background-color: var(--brand-color-1);
+    color: #fff;
 }
