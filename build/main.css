@@ -1,0 +1,25 @@
+button {
+  background-color: red;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 11px;
+}
+
+#alerta-entrega {
+  width: 118px;
+  height: 155px;
+  background-color: red;
+}
+#alerta-entrega img {
+  background-color: #fff;
+  border-radius: 100%;
+  padding: 16px;
+}
+#alerta-entrega p {
+  font-size: 15px;
+  text-align: center;
+  color: #fff;
+}
+
+/*# sourceMappingURL=main.css.map */
