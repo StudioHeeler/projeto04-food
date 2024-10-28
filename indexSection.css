@@ -21,6 +21,7 @@
     flex-direction: column;
     width: 100%;
     min-height: 700px; 
+    background-color: var(--color2);
 }  
 
 #section-title-serve {
@@ -165,4 +166,41 @@
         margin-top: 10px;
     }
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    #text-h1-serve {
+        font-size: 28px; 
+    }
+
+    #section-img {
+        flex-direction: row; 
+        justify-content: space-around;
+        margin-left: 10px;
+        width: 100%;
+    }
+
+    .services {
+        width: 300px; 
+        height: 300px; 
+    }
+
+    #section-img-text {
+        display: flex;
+        align-items: center; 
+        justify-content: space-evenly;
+    }
+
+    .img-text {
+        width: 280px;
+        height: 280px;
+    }
+
+    #text-h1-serve {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+}
+
 
