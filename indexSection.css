@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --color1: #DD5C34;
+    --color2: #fff;
+    --color3: #F8EDD9;
+    --color4: #262626;
+}
+
+#section-container-serve {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 700px; 
+    background-color: var(--color2);
+}  
+
+#section-title-serve {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+#section-title-serve-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+}
+
+#h1-letter-C {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color2);
+    background-color: var(--color1);
+    border-radius: 50%;
+    height: 100px;
+    width: 90px;
+    font-size: 80px;
+}
+
+#h1-letter {
+    color: var(--color4);
+    font-size: 60px;
+}
+
+.h1-serve {
+    color: var(--color1);
+}
+
+#text-h1-serve {
+    font-size: 34px;
+}
+
+.h1-text-color4 {
+    font-size: 34px;
+    color: var(--color4);
+}
+
+#section-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 500px;
+}
+
+.services {
+    width: 350px;
+    height: 350px;
+}
+
+#section-img-text {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 100%;
+    height: 350px;
+}
+
+.img-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color3);
+    color: var(--color1);
+    width: 350px;
+    height: 300px;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.subtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    text-align: justify;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    #section-title-serve{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #section-title-serve-2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    #h1-letter {
+        font-size: 30px;
+    }
+
+    #text-h1-serve {
+        font-size: 24px;
+    }
+
+    .services {
+        max-width: 250px;
+    }
+
+    .img-text {
+        max-width: 250px;
+        height: 200px;
+    }
+    #section-img {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #section-img-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        height: 800px;
+    }
+    .img-text {
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    #text-h1-serve {
+        font-size: 28px; 
+    }
+
+    #section-img {
+        flex-direction: row; 
+        justify-content: space-around;
+        margin-left: 10px;
+        width: 100%;
+    }
+
+    .services {
+        width: 300px; 
+        height: 300px; 
+    }
+
+    #section-img-text {
+        display: flex;
+        align-items: center; 
+        justify-content: space-evenly;
+    }
+
+    .img-text {
+        width: 280px;
+        height: 280px;
+    }
+
+    #text-h1-serve {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+}
+
+
