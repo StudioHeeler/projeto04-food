@@ -4,123 +4,156 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meu Projeto com Bootstrap</title>
-    <!-- Link do Bootstrap CSS (versão mais recente) -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <!-- Link dos Bootstrap Icons -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="build/main.css" />
   </head>
-  <body>
-    <section class="container">
-      <div class="row">
-        <div class="col-6">
-          <p>BAIXAR O APP</p>
-
-          <div class="d-flex align-items-start">
-            <h2 class="position-absolute">Comece com o Fudo hoje!</h2>
-            <p class="me-3 mt-5">
+  <!DOCTYPE html>
+  <html lang="pt-BR">
+    <head>
+      <!-- ... (cabeçalho permanece o mesmo) ... -->
+    </head>
+    <body>
+      <section class="app-promo container rounded-5">
+        <div class="row mt-4">
+          <!-- Primary Section (lado esquerdo) -->
+          <div class="col-12 col-md-6 mb-4 mb-md-0">
+            <p class="text-uppercase mt-4" id="baixar-app">BAIXAR O APP</p>
+            <h2 class="mt-3 h2-primary">Comece com o Fudo hoje!</h2>
+            <p class="mt-3 p-primary">
               Descubra comida onde e quando quiser e receba seu pedido
               rapidamente.
             </p>
-            <div class="card card-body" id="alerta-entrega">
-              <img
-                class="card-img"
-                src="assets/icones/delivery-box.svg"
-                alt="caixa de delivery"
-              />
-              <p class="card-text fw-bolder">Sua Comida Chegou</p>
+            <div class="card mt-3" id="sua-comida-chegou">
+              <div class="card-body">
+                <img
+                  src="assets/icones/delivery-box.svg"
+                  alt="caixa de delivery"
+                  class="mb-2 img-fluid"
+                />
+                <p class="card-text fw-bold">Sua Comida Chegou</p>
+              </div>
             </div>
-          </div>
+            <button class="btn default-btn mt-3">Baixe o App</button>
 
-          <div>
-            <button>Baixe o App</button>
-
-            <div class="d-flex justify-content-between">
-              <img src="assets/icones/emoji.png" alt="foto de apresentação" />
-              <h4>Richard Watson</h4>
-              <p>Entregador de Comida</p>
+            <div
+              class="d-flex justify-content-between align-items-center mb-3 mt-4"
+              id="pop-up-perfil"
+            >
+              <img src="assets/icones/emoji.png" alt="ícone de um botão" />
+              <div class="d-flex flex-column">
+                <h6>Richard Watson</h6>
+                <p class="mb-0">Entregador de comida</p>
+              </div>
               <img
                 src="assets/icones/telephone-icon.svg"
-                alt="ícone de um telefone"
+                alt="foto de apresentação"
               />
             </div>
           </div>
-        </div>
-        <div class="col-6">
-          <div class="container d-flex justify-content-between">
-            <i>
-              <img src="assets/icones/Frame 20.svg" alt="ícone de um botão" />
-            </i>
-            <i>
-              <img
-                src="assets/icones/location-icon.svg"
-                alt="ícone de localização"
-              />
-            </i>
-            <p>
-              California, US
-              <i>
-                <img src="assets/icones/arrow-down.svg" alt="" />
-              </i>
-            </p>
 
-            <img src="assets/icones/emoji-2.png" alt="foto de apresentação" />
-          </div>
-
-          <div class="container d-flex">
-            <div>
-              <h2>A Entrega de Comida Mais <span>Rápida</span></h2>
-              <button>Peça Agora</button>
+          <!-- Subsection-1 (lado direito) -->
+          <div class="col-12 col-md-6 mt-4 mt-md-0" id="subsection-1">
+            <div class="d-flex justify-content-md-end">
+              <div class="content-wrapper">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3 mt-4"
+                  id="pop-up-perfil"
+                >
+                  <img
+                    src="assets/icones/Frame 20.svg"
+                    alt="ícone de um botão"
+                  />
+                  <div class="d-flex align-items-center">
+                    <img
+                      src="assets/icones/location-icon.svg"
+                      alt="ícone de localização"
+                      class="me-2"
+                    />
+                    <p class="mb-0">
+                      California, US
+                      <img
+                        src="assets/icones/arrow-down.svg"
+                        alt="seta para baixo"
+                        class="ms-1"
+                      />
+                    </p>
+                  </div>
+                  <img
+                    src="assets/icones/emoji-2.png"
+                    alt="foto de apresentação"
+                  />
+                </div>
+                <div id="subsection-2">
+                  <h2 class="mt-3">
+                    A Entrega de Comida Mais
+                    <span class="span-color-red">Rápida</span>
+                  </h2>
+                  <button class="btn default-btn mt-3">Peça Agora</button>
+                  <img
+                    src="assets/icones/entregador-art.svg"
+                    alt="arte do entregador"
+                    class="img-fluid mt-3"
+                  />
+                </div>
+                <div class="card mt-4" id="card-categorias">
+                  <div class="card-body">
+                    <h3 class="card-title">Categorias</h3>
+                    <ul
+                      class="list-unstyled d-flex flex-column flex-md-row justify-content-between mt-3"
+                    >
+                      <li class="mb-3 mb-md-0">
+                        <img src="./assets/icones/burguer.png" alt="Burguer" />
+                        <p>Burguer</p>
+                      </li>
+                      <li class="mb-3 mb-md-0">
+                        <img src="./assets/icones/pizza.png" alt="Pizza" />
+                        <p>Pizza</p>
+                      </li>
+                      <li class="mb-3 mb-md-0">
+                        <img src="./assets/icones/cupcake.png" alt="Cupcake" />
+                        <p>Cupcake</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-4"
+                >
+                  <h4 class="mb-0">Popular agora</h4>
+                  <button id="btn-yellow" class="btn btn-link">
+                    Ver todos
+                    <img
+                      src="assets/icones/arrow-right.svg"
+                      alt="seta para direita"
+                    />
+                  </button>
+                </div>
+                <div class="d-flex mt-3">
+                  <img
+                    class="w-50 me-2"
+                    src="assets/icones/barca-sushi.png"
+                    alt="barca de sushi"
+                  />
+                  <img
+                    class="w-50"
+                    src="assets/icones/bife.png"
+                    alt="prato com bife, batata frita"
+                  />
+                </div>
+              </div>
             </div>
-            <img src="assets/icones/entregador-art.svg" alt="" />
-          </div>
-
-          <div class="container card border-0 card-body">
-            <h3 class="card-title">Categorias</h3>
-
-            <ul
-              class="container card-group justify-content-between list-unstyled"
-            >
-              <li>Burguer</li>
-              <li>Pizza</li>
-              <li>Cupcake</li>
-            </ul>
-          </div>
-
-          <div class="d-flex justify-content-between">
-            <h4>Popular agora</h4>
-            <h5>
-              Ver todos
-              <button class="bg-transparent border-0">
-                <img src="assets/icones/arrow-right.svg" alt="botão" />
-              </button>
-            </h5>
-          </div>
-
-          <div class="d-flex">
-            <img
-              class="w-25"
-              src="assets/icones/barca-sushi.png"
-              alt="barca de sushi"
-            />
-            <img
-              class="w-25"
-              src="assets/icones/bife.png"
-              alt="prato com bife, batata frita"
-            />
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Scripts do Bootstrap (versão mais recente) -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+      <!-- ... (scripts permanecem os mesmos) ... -->
+    </body>
+  </html>
 </html>

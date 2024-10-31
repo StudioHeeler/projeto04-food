@@ -1,0 +1,12 @@
+// Mixins
+@mixin for-tablet-up {
+  @media (min-width: 768px) and (max-width: 1023px) { @content; }
+}
+
+@mixin for-desktop-up {
+  @media (min-width: 1024px) { @content; }
+}
+
+@mixin for-large-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}

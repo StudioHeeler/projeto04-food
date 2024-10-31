@@ -1,25 +1,246 @@
-button {
-    background-color: red;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    padding: 11px;
+@use "config/variaveis" as *;
+@use "config/reset" as *;
+@use "config/mixins" as *;
+@use "sass:color";
+
+// Base styles (mobile-first)
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: $text-color;
+  background-color: #fff;
 }
 
-#alerta-entrega {
-    width: 118px;
-    height: 155px;
-    background-color: red;;
+.container {
+  width: 90%;
+  padding: 0 15px;
+  margin: 0 auto;
+  background-color: $primary-color;
+}
 
-    img {
-        background-color: #fff;
-        border-radius: 100%;
-        padding: 16px;
-    }
+// Typography
+#baixar-app {
+  color: $secondary-color;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
 
-    p {
-        font-size: 15px;
-        text-align: center;
-        color: #fff;
+.h2-primary {
+  color: #010F1C;
+  font-family: Rubik;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+// Components
+// Modificar a classe .default-btn existente
+.default-btn {
+  width: 100%; // Mudança para ocupar toda a largura em mobile
+  height: 68px;
+  padding: 11px 20px;
+  border-radius: 50px;
+  background: #EB0029;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block; // Adicionado para mobile
+
+  &:hover {
+    background-color: color.adjust($secondary-color, $lightness: 10%);
+  }
+}
+
+// ... (resto do código)
+
+// Media query para desktop
+@include for-desktop-up {
+  .default-btn {
+    width: 201px; // Volta para a largura original em desktop
+    display: inline-block; // Volta para inline-block em desktop
+  }
+
+  // ... (resto do código para desktop)
+}
+
+#pop-up-perfil {
+  width: 294px;
+  height: 71px;
+  padding: 9px 15px;
+  border-radius: 50px;
+  background: #FFF;
+  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.10);
+}
+
+#sua-comida-chegou {
+  width: 118px;
+  padding: 19px 4px 9px 4px;
+  border-radius: 15px;
+  background: #EB0029;
+
+  .card-body {
+    padding: 16px 5px;
+  }
+
+  img.mb-2 {
+    padding: 16px 5px;
+    background-color: #fff !important;
+    border-radius: 40px;
+    margin-left: 12px;
+  }
+
+  p {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15px;
+    text-align: center;
+    max-width: 100px;
+    margin: 0 auto;
+  }
+}
+// Adicione isso à seção de componentes ou crie uma nova seção para cards
+// ... (código anterior permanece o mesmo)
+
+#card-categorias {
+  border: none !important;
+  .card-body {
+    ul {
+      padding: 0;
+      list-style-type: none;
+      li {
+        display: block; // Mudança para block em mobile
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        width: 100%; // Ocupa toda a largura em mobile
+        height: 68px;
+        padding: 11px 20px;
+        border-radius: 50px;
+        background: #E0E0E0;
+        color: #333333;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        
+        img {
+          margin-right: 1rem;
+          width: 24px;
+          vertical-align: middle;
+          background-color: #fff;
+          border-radius: 20px;
+        }
+        
+        p {
+          margin-bottom: 0;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        
+        &.hover-bg-danger:hover {
+          background-color: color.adjust(#EB0029, $lightness: 10%) !important;
+          color: #fff !important;
+        }
+      }
     }
+  }
+}
+
+// Media query para desktop
+@include for-desktop-up {
+  #card-categorias {
+    .card-body {
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        li {
+          display: inline-block; // Volta para inline-block em desktop
+          width: auto; // Largura automática em desktop
+          margin-bottom: 0;
+          flex: 1;
+          text-align: center;
+
+          img {
+            margin-right: 0;
+            margin-bottom: 0.5rem;
+            display: block;
+            margin: 0 auto;
+          }
+
+          p {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ... (resto do código permanece o mesmo)
+
+// Media queries for larger screens
+// ... (código anterior permanece o mesmo)
+
+// Media queries for larger screens
+@include for-tablet-up {
+  .container {
+    width: 90%;
+    max-width: 960px;
+  }
+
+  #baixar-app {
+    font-size: 18px;
+    line-height: 22.4px;
+    letter-spacing: 2.88px;
+  }
+
+  .h2-primary {
+    width: 404px;
+    height: 141px;
+    font-size: 46px;
+    line-height: 60px;
+  }
+}
+
+@include for-desktop-up {
+  .container {
+    max-width: 1024px;
+  }
+
+  // Adicione aqui outros estilos específicos para desktop (1024px e acima)
+}
+
+@include for-large-desktop-up {
+  .container {
+    max-width: 1140px;
+  }
+
+  // Adicione aqui outros estilos específicos para telas grandes (1200px e acima)
+}
+
+// ... (resto do código permanece o mesmo)
+
+// ... (resto do código existente)
+
+
+#btn-yellow {
+  background-color: transparent;
+  color: $specific-color;
+  text-decoration: none;
+  font-weight: small;
+}
+// Adicione este novo bloco no final do arquivo
+#subsection-1 {
+  @include for-tablet-up {
+    .content-wrapper {
+      max-width: 90%;
+      margin-left: auto;
+    }
+  }
 }
