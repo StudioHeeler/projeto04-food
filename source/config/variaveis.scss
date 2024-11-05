@@ -1,6 +1,12 @@
-// Variáveis
-$primary-color: #FFDDCC40;
-$secondary-color: #EB0029;
-$background-color-item: #E0E0E0;
-$text-color: #333;
-$specific-color: #F2C94C;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+// Cores
+$brand-color-1: #dd5c36;
+$brand-color-2: #327039;
+$brand-color-3: #133020;
+$grey-color-1: #f8edd9;
+$grey-color-2: #e0e0e0;
+
+// Fontes
+$font-general: "Poppins", sans-serif;
+$font-subtitle: "Rubik", sans-serif;

@@ -5,45 +5,68 @@
 
 // Base styles (mobile-first)
 body {
-  font-family: Arial, sans-serif;
+  font-family: $font-general;
   line-height: 1.6;
-  color: $text-color;
-  background-color: #fff;
+  color: $brand-color-3;
+  background-color: $grey-color-1;
 }
 
 .container {
   width: 90%;
   padding: 0 15px;
   margin: 0 auto;
-  background-color: $primary-color;
+  background-color: $grey-color-1;
 }
 
 // Typography
 #baixar-app {
-  color: $secondary-color;
-  font-family: Poppins;
+  color: $brand-color-2;
+  font-family: $font-general;
   font-size: 16px;
   font-weight: 600;
   line-height: 20px;
   letter-spacing: 2px;
+
+  @include for-desktop-up {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22.4px;
+    letter-spacing: 2.88px;
+  }
 }
 
 .h2-primary {
-  color: #010F1C;
-  font-family: Rubik;
+  font-family: $font-subtitle;
   font-size: 32px;
   font-weight: 700;
   line-height: 40px;
+
+  @include for-desktop-up {
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px;
+  }
 }
 
-// Components
-// Modificar a classe .default-btn existente
+p.p-primary {
+  @include for-desktop-up {
+    font-family: $font-general;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+  }
+}
+
 .default-btn {
   width: 100%; // Mudança para ocupar toda a largura em mobile
   height: 68px;
   padding: 11px 20px;
   border-radius: 50px;
-  background: #EB0029;
+  background: $brand-color-1;
+  font-weight: 600;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -51,11 +74,17 @@ body {
   display: block; // Adicionado para mobile
 
   &:hover {
-    background-color: color.adjust($secondary-color, $lightness: 10%);
+    background-color: color.adjust($brand-color-1, $lightness: 10%);
+  }
+
+  @include for-tablet-up {
+    .default-btn {
+      &:hover {
+        background-color: color.adjust($brand-color-1, $lightness: 10%);
+      }
+    }
   }
 }
-
-// ... (resto do código)
 
 // Media query para desktop
 @include for-desktop-up {
@@ -64,23 +93,47 @@ body {
     display: inline-block; // Volta para inline-block em desktop
   }
 
-  // ... (resto do código para desktop)
-}
+  #pop-up-perfil {
+    width: 294px;
+    height: 71px;
+    padding: 9px 15px;
+    border-radius: 50px;
+    background: #fff;
+    box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
+    margin-left: auto; // Adiciona margem automática à esquerda
+    margin-right: 0; // Remove margem à direita
+    align-self: flex-end; // Alinha à direita dentro do flex container
+  }
 
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #subsection-1 {
+    .content-wrapper {
+      max-width: 100%; // Ajusta para ocupar toda a largura disponível
+      margin-left: auto; // Adiciona margem automática à esquerda
+      margin-right: 0; // Remove margem à direita
+    }
+  }
+}
 #pop-up-perfil {
   width: 294px;
   height: 71px;
   padding: 9px 15px;
   border-radius: 50px;
-  background: #FFF;
-  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.10);
+  background: #fff;
+  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
 }
 
 #sua-comida-chegou {
   width: 118px;
   padding: 19px 4px 9px 4px;
   border-radius: 15px;
-  background: #EB0029;
+  background: $brand-color-1;
+  cursor: pointer;
+  margin-left: auto;
 
   .card-body {
     padding: 16px 5px;
@@ -103,8 +156,6 @@ body {
     margin: 0 auto;
   }
 }
-// Adicione isso à seção de componentes ou crie uma nova seção para cards
-// ... (código anterior permanece o mesmo)
 
 #card-categorias {
   border: none !important;
@@ -113,20 +164,19 @@ body {
       padding: 0;
       list-style-type: none;
       li {
-        display: block; // Mudança para block em mobile
+        display: block;
         align-items: center;
         justify-content: center;
         margin-bottom: 1rem;
-        width: 100%; // Ocupa toda a largura em mobile
+        width: 100%;
         height: 68px;
         padding: 11px 20px;
         border-radius: 50px;
-        background: #E0E0E0;
-        color: #333333;
+        background: #e0e0e0;
+        color: $brand-color-3;
         border: none;
         cursor: pointer;
-        transition: background-color 0.3s ease;
-        
+
         img {
           margin-right: 1rem;
           width: 24px;
@@ -134,25 +184,40 @@ body {
           background-color: #fff;
           border-radius: 20px;
         }
-        
+
         p {
           margin-bottom: 0;
           display: inline-block;
           vertical-align: middle;
         }
-        
-        &.hover-bg-danger:hover {
-          background-color: color.adjust(#EB0029, $lightness: 10%) !important;
-          color: #fff !important;
+
+        &:hover {
+          background-color: color.adjust($brand-color-1, $lightness: 10%);
+          color: $grey-color-1;
         }
       }
     }
   }
 }
 
-// Media query para desktop
+@include for-tablet-up {
+  #card-categorias {
+    .card-body {
+      ul {
+        li {
+          &:hover {
+            background-color: color.adjust($brand-color-1, $lightness: 10%);
+            color: $grey-color-1;
+          }
+        }
+      }
+    }
+  }
+}
+
 @include for-desktop-up {
   #card-categorias {
+    background-color: $grey-color-1;
     .card-body {
       ul {
         display: flex;
@@ -160,21 +225,30 @@ body {
         justify-content: space-between;
 
         li {
-          display: inline-block; // Volta para inline-block em desktop
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
           width: auto; // Largura automática em desktop
+          margin-left: 15px;
           margin-bottom: 0;
           flex: 1;
-          text-align: center;
 
           img {
             margin-right: 0;
             margin-bottom: 0.5rem;
-            display: block;
-            margin: 0 auto;
+            display: inline-flex;
+            margin-top: 5px;
+            margin: auto;
           }
 
           p {
-            display: block;
+            display: inline-flex;
+          }
+
+          &:hover {
+            background-color: color.adjust($brand-color-1, $lightness: 10%);
+            color: $grey-color-1;
           }
         }
       }
@@ -182,16 +256,50 @@ body {
   }
 }
 
-// ... (resto do código permanece o mesmo)
-
-// Media queries for larger screens
-// ... (código anterior permanece o mesmo)
-
-// Media queries for larger screens
 @include for-tablet-up {
   .container {
     width: 90%;
     max-width: 960px;
+
+    #card-categorias {
+      background-color: $grey-color-1;
+      .card-body {
+        ul {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          gap: 15px;
+
+          li {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: auto;
+            margin-bottom: 0;
+            flex: 1;
+
+            &:hover {
+              background-color: color.adjust($brand-color-1, $lightness: 10%);
+              color: $grey-color-1 !important;
+            }
+
+            img {
+              margin-right: 0;
+              margin-bottom: 0.5rem;
+              display: inline-flex;
+              margin-top: 5px;
+              margin: auto;
+            }
+
+            p {
+              display: inline-flex;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
   }
 
   #baixar-app {
@@ -212,35 +320,250 @@ body {
   .container {
     max-width: 1024px;
   }
-
-  // Adicione aqui outros estilos específicos para desktop (1024px e acima)
 }
 
-@include for-large-desktop-up {
-  .container {
-    max-width: 1140px;
+#pratos {
+  div#pratos-header {
+    display: flex;
+    width: 75%;
+    justify-content: space-between;
+    align-items: center;
+
+    h4 {
+      font-size: 18px;
+      margin: 0; // Remove a margem padrão do h4
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      background: none;
+      font-size: 13px;
+      font-weight: normal;
+      border: none;
+      cursor: pointer;
+      color: $brand-color-1;
+      font-weight: bold;
+
+      img {
+        margin-left: 5px; // Adiciona um pequeno espaço entre o texto e o ícone
+      }
+    }
   }
-
-  // Adicione aqui outros estilos específicos para telas grandes (1200px e acima)
 }
 
-// ... (resto do código permanece o mesmo)
-
-// ... (resto do código existente)
-
-
-#btn-yellow {
-  background-color: transparent;
-  color: $specific-color;
-  text-decoration: none;
-  font-weight: small;
-}
-// Adicione este novo bloco no final do arquivo
 #subsection-1 {
   @include for-tablet-up {
     .content-wrapper {
       max-width: 90%;
       margin-left: auto;
+
+      #pop-up-perfil-2 {
+        width: 294px;
+        height: 71px;
+        padding: 9px 15px;
+        border-radius: 50px;
+        margin-left: 0; // Remove a margem automática à esquerda
+        margin-right: 20px;
+        align-self: flex-start; // Centraliza o pop-up-perfil à esquerda do content-wrapper
+      }
+    }
+  }
+
+  @include for-desktop-up {
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center; // Centraliza os itens horizontalmente
+    }
+
+    #pop-up-perfil {
+      width: 294px;
+      height: 71px;
+      padding: 9px 15px;
+      border-radius: 50px;
+      background: #fff;
+      box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
+      margin-left: 0; // Remove a margem automática à esquerda
+      margin-right: 0;
+      align-self: center; // Centraliza o pop-up-perfil dentro do content-wrapper
+    }
+
+    #pop-up-perfil-2 {
+      width: 100%;
+      height: 71px;
+      padding: 9px 15px;
+      border-radius: 50px;
+      margin-left: 0; // Remove a margem automática à esquerda
+      margin-right: 20px;
+      align-self: flex-start; // Centraliza o pop-up-perfil à esquerda do content-wrapper
+    }
+  }
+
+  #subsection-2 {
+    h2 {
+      font-weight: 600;
+      span.span-color {
+        color: $brand-color-1;
+      }
+    }
+
+    @include for-desktop-up {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .text-content {
+        flex: 1;
+        text-align: left;
+        padding-right: 20px;
+        width: 120px;
+
+        h2 {
+          margin-bottom: 10px;
+
+          span.span-color {
+            color: $brand-color-1;
+          }
+        }
+      }
+
+      .image-content {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+
+        img {
+          max-width: 100%;
+          width: 90%;
+          height: auto;
+          object-fit: contain;
+        }
+      }
+    }
+
+    @include for-tablet-up {
+      .text-content {
+        flex: 1;
+        text-align: left;
+        padding-right: 20px;
+
+        h2 {
+          font-weight: 600;
+          margin-bottom: 10px;
+
+          span.span-color {
+            color: $brand-color-1;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  #card-categorias {
+    ul {
+      li {
+        &:hover {
+          background-color: color.adjust($brand-color-1, $lightness: 10%);
+          color: $grey-color-1 !important;
+        }
+        p {
+          font-weight: 600;
+        }
+      }
+    }
+    @include for-desktop-up {
+      h3 {
+        width: 108px;
+        height: 27px;
+        flex-shrink: 0;
+
+        font-family: $font-general;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 30px;
+      }
+
+      ul {
+        li {
+          display: flex;
+          width: 120px;
+          padding: 10px 20px 10px 11px;
+          justify-content: space-between;
+          align-items: center;
+
+          img {
+            display: flex;
+            width: 24px;
+            height: 24px;
+            padding: 3px;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+          }
+
+          p {
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 22.4px;
+          }
+        }
+      }
+    }
+  }
+
+  #pratos {
+    @include for-desktop-up {
+      margin-left: 100px;
+
+      > div#pratos-header {
+        display: flex;
+        width: 75%;
+        justify-content: space-between;
+        align-items: center;
+
+        h4 {
+          margin: 0; // Remove a margem padrão do h4
+        }
+
+        button {
+          display: flex;
+          align-items: center;
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: $brand-color-1; // Ajuste a cor conforme necessário
+          font-weight: bold;
+
+          img {
+            margin-left: 5px; // Adiciona um pequeno espaço entre o texto e o ícone
+          }
+        }
+      }
+    }
+
+    @include for-tablet-up {
+      margin-left: 50px;
+
+      > div#pratos-header {
+        width: 100%;
+        h4 {
+          margin: 0; // Remove a margem padrão do h4
+        }
+
+        button {
+          font-size: 13px;
+        }
+      }
+    }
+
+    div#pratos-body {
+      margin-top: 10px;
+      margin-left: 50px;
     }
   }
 }
