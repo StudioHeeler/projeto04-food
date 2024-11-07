@@ -1,42 +1,15 @@
+@import '../css/style.css';
+
 .header-menu-section{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 31.25rem;
 }
 
 .title{
     color: var(--brand-color-1);
-    font-size: 1.125rem;
-    font-weight: 900;
+    font-size: 1em;
 }
 
 .subtitle{
-    font-size: 2.5rem;
-    font-family: var(--font-subtitle);
-}
-
-.buttons-container{
-    display: flex;
-    align-items: center;
-    gap: 1.875rem;
-    padding-top: 4.375rem;
-}
-
-.button-controller{
-    padding: .625rem;
-    border-radius: 100%;
-    text-align: center;
-    cursor: pointer;
-    background-color: var(--grey-color-2);
-}
-
-.icon-arrow{
-    font-size: 15px;
-    font-weight: 900;
-}
-
-.active{
-    background-color: var(--brand-color-1);
-    color: #fff;
+   font-family: var(--font-subtitle);
+   width: 70vw;
 }

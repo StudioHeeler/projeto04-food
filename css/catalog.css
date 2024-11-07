@@ -1,37 +1,40 @@
-.lateral-catalog{
-    margin: 2% 3%;
+@import '../css/style.css';
+
+.lateral-catalog, .scrooling {
     display: flex;
-    flex-direction: column;
-    gap: 25px;
-    border-right: 5px solid #1330203c;
-    max-width: 200px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
 }
 
-.lateral-catalog > .image-control{
-   display: flex;
-   align-items: center;
-   gap: 29px;
-   width: 90%;
+.image-control {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    gap: 5px;
 }
 
-.marked-category{
-    width: 65%;
-    background-color: var(--brand-color-2);
+.image-control > img {
+    height: 20px;
+}
+
+.active-mark {
+    background-color: var(--brand-color-1);
+    padding: 5px;
+    border-radius: 20px;
     color: var(--grey-color-2);
-    padding: 10px;
-    border-radius: 40px;
-    .icon{
-        background-color: #fff;
-        border-radius: 40px;
-    }
+    gap: 5px;
 }
 
-.active-mark::before {
-    content: "";
-    position: absolute;
-    top: 31.5%;
-    left: 24.1%;
-    width: 3px;
-    height: 7%;
-    background-color: var(--brand-color-4);
+.active-mark > .icon {
+    background-color: var(--grey-color-1);
+    border-radius: 20px;
+}
+
+.scrooling {
+    max-height: 300px; /* Define a altura máxima para o conteúdo rolável */
+    overflow-y: auto; /* Permite a rolagem vertical */
+    scroll-behavior: smooth; /* Adiciona a rolagem suave */
+    display: flex;
+    flex-direction: column; /* Organiza os itens verticalmente */
 }
