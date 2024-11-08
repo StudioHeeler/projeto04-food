@@ -27,3 +27,44 @@ body{
 .menu{
     padding: 10px;
 }
+
+
+@media (min-width: 1024px){
+    .menu{
+        padding: 85px;
+
+        .title{
+            font-size: 1.125rem;
+        }
+    
+        .subtitle{
+            font-size: 2.5rem;
+        }
+
+        .lateral-catalog{
+            align-items: flex-start;
+            padding: 0;
+            margin-top: 50px;
+            
+            .buttons-container{
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                
+                .catalog-button{
+                    min-width: 0;
+                    font-size: 24px; 
+                }
+
+                .catalog-button > .icon { 
+                    height: 40px;
+                } 
+            }
+
+            #scrolling{
+                display: none;
+            }
+        }
+    }
+
+}

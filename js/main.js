@@ -1,75 +1,49 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const catalog = document.querySelector('.lateral-catalog');
-    const range = document.querySelector('.scroll-range');
-    let isScrolling = false;
+const scrollInput = document.getElementById('scrolling');
+const buttons = document.querySelectorAll('.catalog-button');
+const buttonsContainer = document.querySelector('.buttons-container');
+const buttonsToShow = 3;
 
-    // Update range value when scrolling
-    catalog.addEventListener('scroll', () => {
-        if (!isScrolling) {
-            const scrollPercentage = (catalog.scrollLeft / (catalog.scrollWidth - catalog.clientWidth)) * 100;
-            range.value = scrollPercentage;
-        }
+function updateButtonsVisible(startIndex) {
+    buttons.forEach((button, index) => {
+        button.style.display = (index >= startIndex && index < startIndex + buttonsToShow) ? 'flex' : 'none';
     });
+}
 
-    // Update scroll position when range changes
-    range.addEventListener('input', (e) => {
-        isScrolling = true;
-        const scrollPercentage = e.target.value / 100;
-        const scrollPosition = (catalog.scrollWidth - catalog.clientWidth) * scrollPercentage;
-        catalog.scrollLeft = scrollPosition;
+function showAllButtons() {
+    buttons.forEach((button) => {
+        button.style.display = 'flex';
     });
+}
 
-    // Reset isScrolling flag when user stops interacting with range
-    range.addEventListener('mouseup', () => {
-        setTimeout(() => {
-            isScrolling = false;
-        }, 50);
-    });
+function resetScroll() {
+    scrollInput.value = 0; 
+    updateButtonsVisible(0);
+}
 
-    // Hide range if no scroll needed
-    function updateRangeVisibility() {
-        const isScrollable = catalog.scrollWidth > catalog.clientWidth;
-        range.style.display = isScrollable ? 'block' : 'none';
+function handleScreenSize() {
+    if (window.innerWidth >= 1024) {
+        showAllButtons();
+        scrollInput.style.display = 'none';
+    } else {
+        scrollInput.style.display = 'block';
+        resetScroll(); // Reseta a rolagem e exibe os botões corretos
     }
+}
 
-    // Update range visibility on load and resize
-    updateRangeVisibility();
-    window.addEventListener('resize', updateRangeVisibility);
-});document.addEventListener('DOMContentLoaded', () => {
-    const catalog = document.querySelector('.lateral-catalog');
-    const range = document.querySelector('.scroll-range');
-    let isScrolling = false;
+window.addEventListener('resize', handleScreenSize);
 
-    // Update range value when scrolling
-    catalog.addEventListener('scroll', () => {
-        if (!isScrolling) {
-            const scrollPercentage = (catalog.scrollLeft / (catalog.scrollWidth - catalog.clientWidth)) * 100;
-            range.value = scrollPercentage;
-        }
+handleScreenSize();
+
+if (window.innerWidth < 1024) {
+    scrollInput.addEventListener('input', () => {
+        let index = parseInt(scrollInput.value, 10);
+        const maxIndex = buttons.length - buttonsToShow;
+        if (index < 0) index = 0;
+        if (index > maxIndex) index = maxIndex;
+        updateButtonsVisible(index);
     });
 
-    // Update scroll position when range changes
-    range.addEventListener('input', (e) => {
-        isScrolling = true;
-        const scrollPercentage = e.target.value / 100;
-        const scrollPosition = (catalog.scrollWidth - catalog.clientWidth) * scrollPercentage;
-        catalog.scrollLeft = scrollPosition;
-    });
-
-    // Reset isScrolling flag when user stops interacting with range
-    range.addEventListener('mouseup', () => {
-        setTimeout(() => {
-            isScrolling = false;
-        }, 50);
-    });
-
-    // Hide range if no scroll needed
-    function updateRangeVisibility() {
-        const isScrollable = catalog.scrollWidth > catalog.clientWidth;
-        range.style.display = isScrollable ? 'block' : 'none';
-    }
-
-    // Update range visibility on load and resize
-    updateRangeVisibility();
-    window.addEventListener('resize', updateRangeVisibility);
-});
+    const maxIndex = buttons.length - buttonsToShow;
+    scrollInput.max = maxIndex;
+    updateButtonsVisible(0);
+}
