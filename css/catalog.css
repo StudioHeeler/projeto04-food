@@ -1,40 +1,134 @@
 @import '../css/style.css';
 
-.lateral-catalog, .scrooling {
+.lateral-catalog {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 6px;
+    overflow-x: auto; /* Changed from scroll to auto for better cross-browser behavior */
+    overflow-y: hidden;
+    max-width: 100%;
+    padding: 5px 0;
+    -ms-overflow-style: none;  /* Hide scrollbar IE and Edge */
+    scrollbar-width: none;  /* Hide scrollbar Firefox */
+    scroll-behavior: smooth;
 }
 
-.image-control {
-    display: flex;
-    align-items: center;
-    font-size: 10px;
-    gap: 5px;
-}
-
-.image-control > img {
-    height: 20px;
-}
-
-.active-mark {
-    background-color: var(--brand-color-1);
-    padding: 5px;
-    border-radius: 20px;
-    color: var(--grey-color-2);
-    gap: 5px;
-}
-
-.active-mark > .icon {
-    background-color: var(--grey-color-1);
-    border-radius: 20px;
+/* Hide scrollbar for Chrome, Safari and Opera */
+.lateral-catalog::-webkit-scrollbar {
+    display: none;
 }
 
 .scrooling {
-    max-height: 300px; /* Define a altura máxima para o conteúdo rolável */
-    overflow-y: auto; /* Permite a rolagem vertical */
-    scroll-behavior: smooth; /* Adiciona a rolagem suave */
     display: flex;
-    flex-direction: column; /* Organiza os itens verticalmente */
+    align-items: center;
+    justify-content: center; /* Changed from center to flex-start for better scrolling */
+    gap: 6px;
+    padding: 10px; 
+}
+
+.catalog-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px; 
+    font-size: 12px;
+    height: 7%;
+    min-width: 100px;
+    border: none;
+    background-color: transparent;
+    gap: 10px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.catalog-button:hover {
+    background-color: var(--brand-color-1);
+    border-radius: 20px;
+    transform: scale(1.05);
+    color: var(--grey-color-1);
+}
+
+.catalog-button:active {
+    transform: scale(0.95);
+}
+
+.catalog-button > .icon {
+    height: 20px;
+    width: auto;
+    transition: transform 0.2s ease;
+}
+
+.catalog-button:hover > .icon {
+    background-color: var(--grey-color-1);
+    border-radius: 20px;
+    padding: 2px; /* Added small padding for icon background */
+}
+
+.lateral-catalog::-webkit-scrollbar {
+    display: none;
+}
+
+/* Custom styling for the range input */
+.scroll-range {
+    width: 100%;
+    height: 4px;
+    background: red;
+    border-radius: 2px;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    margin: 0;
+    padding: 0;
+}
+
+.scroll-range:hover {
+    opacity: 1;
+}
+
+/* Thumb styles */
+.scroll-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--brand-color-1);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.scroll-range::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: var(--brand-color-1);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s;
+}
+
+/* Hover effect on thumb */
+.scroll-range::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.scroll-range::-moz-range-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Track styles */
+.scroll-range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.scroll-range::-moz-range-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    border-radius: 2px;
 }
